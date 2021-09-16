@@ -16,19 +16,17 @@ import java.util.ArrayList;
  */
 public class ProductRepository {
     
-    public void displayAllProducts() throws SQLException {
+    public List<Product> getAllProducts() throws SQLException {
         Connection connection = DBConnection.getConnection();
         Statement statement = connection.createStatement();
         
         ResultSet rs = statement.executeQuery("select * from products");
-        ArrayList<Product> products = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
         while(rs.next()) {
             Product product = new Product(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getFloat(4), rs.getInt(5), rs.getString(6), rs.getInt(7));
             products.add(product);
         }
+        return products;
         
-        for(Product product : products) {
-            System.out.println(product.toString());
-        }
     }
 }

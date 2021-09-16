@@ -7,6 +7,7 @@ package com.mycompany.jdbctest;
 
 import com.mycompany.jdbctest.repository.DBConnection;
 import com.mycompany.jdbctest.repository.ProductRepository;
+import com.mycompany.jdbctest.repository.view.ProductView;
 import java.sql.*;
 
 /**
@@ -16,8 +17,8 @@ import java.sql.*;
 public class MainApplication {
     public static void main(String[] args) throws SQLException {
         
-        ProductRepository productRepository = new ProductRepository();
-        productRepository.displayAllProducts();
+        ProductView productView = new ProductView();
+        productView.displayAllProducts();
     }
     
 }
