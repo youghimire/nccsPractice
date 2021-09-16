@@ -17,10 +17,7 @@ public class Product {
     Integer discount;
     String unit;
     Integer stock;
-    
-    public Product() {
-        
-    }
+   
 
     @Override
     public String toString() {
@@ -29,7 +26,6 @@ public class Product {
     
     
     public Product(int productId, int categoryId, String name, float price, int discount, String unit, int stock) {
-        this();
         this.productId = productId;
         this.categoryId = categoryId;
         this.name = name;
