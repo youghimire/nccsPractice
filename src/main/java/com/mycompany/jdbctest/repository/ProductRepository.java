@@ -29,4 +29,12 @@ public class ProductRepository {
         return products;
         
     }
+
+    public void save(Product product) throws SQLException {
+         Connection connection = DBConnection.getConnection();
+        Statement statement = connection.createStatement();
+        
+        statement.executeUpdate("insert into products(category_id, name, price, unit) values (" + product.getCategoryId() + ", '" + product.getName() + "', " + product.getPrice() + ", '" + product.getUnit() + "')");
+        
+    }
 }

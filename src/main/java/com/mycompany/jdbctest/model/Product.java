@@ -17,22 +17,41 @@ public class Product {
     Integer discount;
     String unit;
     Integer stock;
+    Float discountedPrice;
+
+    public Product(int categoryId, String name, Float price) {
+        this.categoryId = categoryId;
+        this.name = name;
+        this.price = price;
+        this.stock = 1;
+        this.unit = "pc";
+        this.discount = 0;
+        this.discountedPrice = price;
+    }
    
 
     @Override
     public String toString() {
-        return "Id " + productId + " Name " + name;
+        return "Id " + productId + " Name " + name + " Price " + discountedPrice;
     }
     
     
-    public Product(int productId, int categoryId, String name, float price, int discount, String unit, int stock) {
-        this.productId = productId;
+    public Product(int pId, int categoryId, String name, float price, int discount, String unit, int stock) {
+        productId = pId;
         this.categoryId = categoryId;
         this.name = name;
         this.price = price;
         this.discount = discount;
         this.unit = unit;
         this.stock = stock;
+    }
+
+    public Float getDiscountedPrice() {
+        return discountedPrice;
+    }
+
+    public void setDiscountedPrice(Float discountedPrice) {
+        this.discountedPrice = discountedPrice;
     }
 
     public Integer getProductId() {
