@@ -5,6 +5,7 @@
  */
 package com.mycompany.jdbctest.repository.view;
 
+import com.mycompany.jdbctest.model.Customer;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -37,5 +38,30 @@ public class HomeView {
                 
 
 
+    }
+
+    public void showCustomerPage(Customer customer) throws SQLException {
+        System.out.println("Welcome to our store " + customer.getFirstName() + customer.getLastName());
+        System.out.println("Please select:");
+        System.out.println("1 Display products.");
+        System.out.println("2 Purchase product.");
+        System.out.println("3 Exit.");
+        ProductView productView = new ProductView();
+        Scanner scanner = new Scanner(System.in);
+        int selectedOption = scanner.nextInt();
+        switch(selectedOption) {
+            case 1:
+                productView.displayAllProducts();
+                showCustomerPage(customer);
+                break;
+            case 2:
+                productView.purchaseProduct(customer);
+                showCustomerPage(customer);
+                break;
+            case 3:
+                break;
+        }
+                
+        
     }
 }

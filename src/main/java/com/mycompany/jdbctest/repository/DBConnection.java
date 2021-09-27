@@ -19,7 +19,7 @@ public class DBConnection {
     
     public static Connection getConnection() throws SQLException {
         if(connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection("jdbc:mysql://sql6.freesqldatabase.com:3306/sql6437842", "sql6437842", "PKH5VBVAtA");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
         }
         return connection;
     }

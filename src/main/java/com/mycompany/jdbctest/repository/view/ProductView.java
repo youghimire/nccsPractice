@@ -5,9 +5,12 @@
  */
 package com.mycompany.jdbctest.repository.view;
 
+import com.mycompany.jdbctest.model.Customer;
 import com.mycompany.jdbctest.controller.ProductController;
 import com.mycompany.jdbctest.model.Product;
+import com.mycompany.jdbctest.repository.OrderRepository;
 import com.mycompany.jdbctest.repository.ProductRepository;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -42,6 +45,19 @@ public class ProductView {
                 ProductController productController = new ProductController();
                 productController.save(product);
 
+    }
+
+   public void purchaseProduct(Customer customer) throws SQLException {
+        System.err.println("Please provide purchase details:");
+        System.out.println("Product Id:");
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int productId = scanner.nextInt();
+        
+        OrderRepository orderRepository = new OrderRepository();
+        orderRepository.save(productId, customer.getCustomerId());
+        
+       
     }
     
 }
